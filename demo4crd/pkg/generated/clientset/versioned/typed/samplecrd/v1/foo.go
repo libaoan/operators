@@ -22,7 +22,7 @@ import (
 	"context"
 	"time"
 
-	v1 "github.com/operators/demo4crd/pkg/apis/crd.example.com/v1"
+	v1 "github.com/operators/demo4crd/pkg/apis/samplecrd/v1"
 	scheme "github.com/operators/demo4crd/pkg/generated/clientset/versioned/scheme"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"

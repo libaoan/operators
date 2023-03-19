@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"net/http"
 
-	crdv1 "github.com/operators/demo4crd/pkg/generated/clientset/versioned/typed/crd.example.com/v1"
+	crdv1 "github.com/operators/demo4crd/pkg/generated/clientset/versioned/typed/samplecrd/v1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

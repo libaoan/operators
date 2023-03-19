@@ -1,6 +1,6 @@
-package crd_example_com
+package samplecrd
 
 // GroupName is the group name used in this package
 const (
-	GroupName = "crd.example.com"
+	GroupName = "samplecrd.k8s.io"
 )

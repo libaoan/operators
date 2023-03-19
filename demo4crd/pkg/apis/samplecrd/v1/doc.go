@@ -1,4 +1,4 @@
 // +k8s:deepcopy-gen=package
-// +groupName=crd.example.com
+// +groupName=samplecrd.k8s.io
 
 package v1

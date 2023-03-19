@@ -21,7 +21,7 @@ package externalversions
 import (
 	"fmt"
 
-	v1 "github.com/operators/demo4crd/pkg/apis/crd.example.com/v1"
+	v1 "github.com/operators/demo4crd/pkg/apis/samplecrd/v1"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )

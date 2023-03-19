@@ -20,12 +20,12 @@ package v1
 
 import (
 	"context"
-	time "time"
+	"time"
 
-	crdexamplecomv1 "github.com/operators/demo4crd/pkg/apis/crd.example.com/v1"
+	crdexamplecomv1 "github.com/operators/demo4crd/pkg/apis/samplecrd/v1"
 	versioned "github.com/operators/demo4crd/pkg/generated/clientset/versioned"
 	internalinterfaces "github.com/operators/demo4crd/pkg/generated/informers/externalversions/internalinterfaces"
-	v1 "github.com/operators/demo4crd/pkg/generated/listers/crd.example.com/v1"
+	v1 "github.com/operators/demo4crd/pkg/generated/listers/samplecrd/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	watch "k8s.io/apimachinery/pkg/watch"

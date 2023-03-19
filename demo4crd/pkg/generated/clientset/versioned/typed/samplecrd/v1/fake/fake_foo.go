@@ -21,7 +21,7 @@ package fake
 import (
 	"context"
 
-	crdexamplecomv1 "github.com/operators/demo4crd/pkg/apis/crd.example.com/v1"
+	samplecrdv1 "github.com/operators/demo4crd/pkg/apis/samplecrd/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -36,25 +36,25 @@ type FakeFoos struct {
 	ns   string
 }
 
-var foosResource = schema.GroupVersionResource{Group: "crd.example.com", Version: "v1", Resource: "foos"}
+var foosResource = schema.GroupVersionResource{Group: "samplecrd.k8s.io", Version: "v1", Resource: "foos"}
 
-var foosKind = schema.GroupVersionKind{Group: "crd.example.com", Version: "v1", Kind: "Foo"}
+var foosKind = schema.GroupVersionKind{Group: "samplecrd.k8s.io", Version: "v1", Kind: "Foo"}
 
 // Get takes name of the foo, and returns the corresponding foo object, and an error if there is any.
-func (c *FakeFoos) Get(ctx context.Context, name string, options v1.GetOptions) (result *crdexamplecomv1.Foo, err error) {
+func (c *FakeFoos) Get(ctx context.Context, name string, options v1.GetOptions) (result *samplecrdv1.Foo, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewGetAction(foosResource, c.ns, name), &crdexamplecomv1.Foo{})
+		Invokes(testing.NewGetAction(foosResource, c.ns, name), &samplecrdv1.Foo{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*crdexamplecomv1.Foo), err
+	return obj.(*samplecrdv1.Foo), err
 }
 
 // List takes label and field selectors, and returns the list of Foos that match those selectors.
-func (c *FakeFoos) List(ctx context.Context, opts v1.ListOptions) (result *crdexamplecomv1.FooList, err error) {
+func (c *FakeFoos) List(ctx context.Context, opts v1.ListOptions) (result *samplecrdv1.FooList, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewListAction(foosResource, foosKind, c.ns, opts), &crdexamplecomv1.FooList{})
+		Invokes(testing.NewListAction(foosResource, foosKind, c.ns, opts), &samplecrdv1.FooList{})
 
 	if obj == nil {
 		return nil, err
@@ -64,8 +64,8 @@ func (c *FakeFoos) List(ctx context.Context, opts v1.ListOptions) (result *crdex
 	if label == nil {
 		label = labels.Everything()
 	}
-	list := &crdexamplecomv1.FooList{ListMeta: obj.(*crdexamplecomv1.FooList).ListMeta}
-	for _, item := range obj.(*crdexamplecomv1.FooList).Items {
+	list := &samplecrdv1.FooList{ListMeta: obj.(*samplecrdv1.FooList).ListMeta}
+	for _, item := range obj.(*samplecrdv1.FooList).Items {
 		if label.Matches(labels.Set(item.Labels)) {
 			list.Items = append(list.Items, item)
 		}
@@ -81,43 +81,43 @@ func (c *FakeFoos) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interf
 }
 
 // Create takes the representation of a foo and creates it.  Returns the server's representation of the foo, and an error, if there is any.
-func (c *FakeFoos) Create(ctx context.Context, foo *crdexamplecomv1.Foo, opts v1.CreateOptions) (result *crdexamplecomv1.Foo, err error) {
+func (c *FakeFoos) Create(ctx context.Context, foo *samplecrdv1.Foo, opts v1.CreateOptions) (result *samplecrdv1.Foo, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewCreateAction(foosResource, c.ns, foo), &crdexamplecomv1.Foo{})
+		Invokes(testing.NewCreateAction(foosResource, c.ns, foo), &samplecrdv1.Foo{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*crdexamplecomv1.Foo), err
+	return obj.(*samplecrdv1.Foo), err
 }
 
 // Update takes the representation of a foo and updates it. Returns the server's representation of the foo, and an error, if there is any.
-func (c *FakeFoos) Update(ctx context.Context, foo *crdexamplecomv1.Foo, opts v1.UpdateOptions) (result *crdexamplecomv1.Foo, err error) {
+func (c *FakeFoos) Update(ctx context.Context, foo *samplecrdv1.Foo, opts v1.UpdateOptions) (result *samplecrdv1.Foo, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateAction(foosResource, c.ns, foo), &crdexamplecomv1.Foo{})
+		Invokes(testing.NewUpdateAction(foosResource, c.ns, foo), &samplecrdv1.Foo{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*crdexamplecomv1.Foo), err
+	return obj.(*samplecrdv1.Foo), err
 }
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *FakeFoos) UpdateStatus(ctx context.Context, foo *crdexamplecomv1.Foo, opts v1.UpdateOptions) (*crdexamplecomv1.Foo, error) {
+func (c *FakeFoos) UpdateStatus(ctx context.Context, foo *samplecrdv1.Foo, opts v1.UpdateOptions) (*samplecrdv1.Foo, error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateSubresourceAction(foosResource, "status", c.ns, foo), &crdexamplecomv1.Foo{})
+		Invokes(testing.NewUpdateSubresourceAction(foosResource, "status", c.ns, foo), &samplecrdv1.Foo{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*crdexamplecomv1.Foo), err
+	return obj.(*samplecrdv1.Foo), err
 }
 
 // Delete takes name of the foo and deletes it. Returns an error if one occurs.
 func (c *FakeFoos) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteActionWithOptions(foosResource, c.ns, name, opts), &crdexamplecomv1.Foo{})
+		Invokes(testing.NewDeleteActionWithOptions(foosResource, c.ns, name, opts), &samplecrdv1.Foo{})
 
 	return err
 }
@@ -126,17 +126,17 @@ func (c *FakeFoos) Delete(ctx context.Context, name string, opts v1.DeleteOption
 func (c *FakeFoos) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
 	action := testing.NewDeleteCollectionAction(foosResource, c.ns, listOpts)
 
-	_, err := c.Fake.Invokes(action, &crdexamplecomv1.FooList{})
+	_, err := c.Fake.Invokes(action, &samplecrdv1.FooList{})
 	return err
 }
 
 // Patch applies the patch and returns the patched foo.
-func (c *FakeFoos) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *crdexamplecomv1.Foo, err error) {
+func (c *FakeFoos) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *samplecrdv1.Foo, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewPatchSubresourceAction(foosResource, c.ns, name, pt, data, subresources...), &crdexamplecomv1.Foo{})
+		Invokes(testing.NewPatchSubresourceAction(foosResource, c.ns, name, pt, data, subresources...), &samplecrdv1.Foo{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*crdexamplecomv1.Foo), err
+	return obj.(*samplecrdv1.Foo), err
 }

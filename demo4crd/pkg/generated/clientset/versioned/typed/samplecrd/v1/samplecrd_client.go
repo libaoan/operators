@@ -21,7 +21,7 @@ package v1
 import (
 	"net/http"
 
-	v1 "github.com/operators/demo4crd/pkg/apis/crd.example.com/v1"
+	v1 "github.com/operators/demo4crd/pkg/apis/samplecrd/v1"
 	"github.com/operators/demo4crd/pkg/generated/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )

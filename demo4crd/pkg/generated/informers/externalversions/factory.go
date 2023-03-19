@@ -24,8 +24,8 @@ import (
 	time "time"
 
 	versioned "github.com/operators/demo4crd/pkg/generated/clientset/versioned"
-	crdexamplecom "github.com/operators/demo4crd/pkg/generated/informers/externalversions/crd.example.com"
 	internalinterfaces "github.com/operators/demo4crd/pkg/generated/informers/externalversions/internalinterfaces"
+	crdexamplecom "github.com/operators/demo4crd/pkg/generated/informers/externalversions/samplecrd"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
