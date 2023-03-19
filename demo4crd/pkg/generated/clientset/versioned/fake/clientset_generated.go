@@ -20,8 +20,8 @@ package fake
 
 import (
 	clientset "github.com/operators/demo4crd/pkg/generated/clientset/versioned"
-	crdv1 "github.com/operators/demo4crd/pkg/generated/clientset/versioned/typed/crd.example.com/v1"
-	fakecrdv1 "github.com/operators/demo4crd/pkg/generated/clientset/versioned/typed/crd.example.com/v1/fake"
+	crdv1 "github.com/operators/demo4crd/pkg/generated/clientset/versioned/typed/samplecrd/v1"
+	fakecrdv1 "github.com/operators/demo4crd/pkg/generated/clientset/versioned/typed/samplecrd/v1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

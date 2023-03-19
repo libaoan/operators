@@ -19,8 +19,8 @@ limitations under the License.
 package crd
 
 import (
-	v1 "github.com/operators/demo4crd/pkg/generated/informers/externalversions/crd.example.com/v1"
 	internalinterfaces "github.com/operators/demo4crd/pkg/generated/informers/externalversions/internalinterfaces"
+	v1 "github.com/operators/demo4crd/pkg/generated/informers/externalversions/samplecrd/v1"
 )
 
 // Interface provides access to each of this group's versions.
