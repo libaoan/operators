@@ -1,11 +1,12 @@
 package main
 
 import (
+	"github.com/operators/demo4crd/pkg"
+	"log"
+
 	clientset "github.com/operators/demo4crd/pkg/generated/clientset/versioned"
 	"github.com/operators/demo4crd/pkg/generated/informers/externalversions"
-	"k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/tools/clientcmd"
-	"log"
 )
 
 func main() {
@@ -20,7 +21,9 @@ func main() {
 
 	factory := externalversions.NewSharedInformerFactory(client, 0)
 	fooInformer := factory.Crd().V1().Foos()
-	fooInformer.Informer().AddEventHandler(cache.ResourceEventHandlerFuncs{
-		AddFunc: func(obj interface{}) {},
-	})
+	fooController := pkg.NewControllerFoo(client, fooInformer)
+	stopCh := make(chan struct{})
+	factory.Start(stopCh)
+	factory.WaitForCacheSync(stopCh)
+	fooController.Run(stopCh)
 }
