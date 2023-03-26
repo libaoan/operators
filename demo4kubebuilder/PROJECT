@@ -7,4 +7,14 @@ layout:
 - go.kubebuilder.io/v3
 projectName: demo4kubebuilder
 repo: demo4kubebuilder
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: k8s.io
+  group: ingress
+  kind: App
+  path: demo4kubebuilder/api/v1beta1
+  version: v1beta1
 version: "3"
