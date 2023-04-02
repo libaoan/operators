@@ -12,7 +12,7 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: k8s.io
+  domain: github.com
   group: ingress
   kind: App
   path: demo4kubebuilder/api/v1beta1

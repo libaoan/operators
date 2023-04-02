@@ -18,8 +18,9 @@
 
 ### Docker + Minikube
 
-为什么要替换Docker Desktop 可以参考这边文章
-[我如何从 Docker Desktop 切换到 Colima](https://t.cj.sina.com.cn/articles/view/1772191555/69a17f43019014old)
+为什么要替换Docker Desktop 可以参考下面文章
+- [我如何从 Docker Desktop 切换到 Colima](https://t.cj.sina.com.cn/articles/view/1772191555/69a17f43019014old)
+- [M1 Mac配置docker kubernetes(k8s) colima完全指南](https://blog.51cto.com/u_15366127/5622308)
 
 - 通过 brew install colima 安装(可能会找不到依赖，可以通过brew install 手动安装依赖)
 - 可以通过本地编译方式安装colima [Mac M1 安装colima，替代Docker for mac Desktop](https://www.jianshu.com/p/963392b3eb4b])

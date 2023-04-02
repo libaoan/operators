@@ -5,9 +5,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.11.1
   creationTimestamp: null
-  name: apps.ingress.k8s.io
+  name: apps.ingress.github.com
 spec:
-  group: ingress.k8s.io
+  group: ingress.github.com
   names:
     kind: App
     listKind: AppList
