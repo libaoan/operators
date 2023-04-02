@@ -1,12 +1,9 @@
-apiVersion: ingress.k8s.io/v1beta1
+apiVersion: ingress.github.com/v1beta1
 kind: App
 metadata:
-  labels:
-    app.kubernetes.io/name: app
-    app.kubernetes.io/instance: app-sample
-    app.kubernetes.io/part-of: demo4kubebuilder
-    app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/created-by: demo4kubebuilder
   name: app-sample
 spec:
-  # TODO(user): Add fields here
+  image: nginx:latest
+  replicas: 2
+  enable_ingress: false #会被修改为true
+  enable_service: true #成功
