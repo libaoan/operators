@@ -206,7 +206,7 @@ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/
 2. 部署
 
 ```shell
-IMG=wangtaotao2015/app-controller make deploy
+IMG=registry.cn-hangzhou.aliyuncs.com/libaoan_ns00/app-controller make deploy
 ```
 
 3. 验证
