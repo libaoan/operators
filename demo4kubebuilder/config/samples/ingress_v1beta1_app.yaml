@@ -9,4 +9,7 @@ metadata:
     app.kubernetes.io/created-by: demo4kubebuilder
   name: app-sample
 spec:
-  # TODO(user): Add fields here
+  image: nginx:latest
+  replicas: 2
+  enable_ingress: true
+  enable_service: true
