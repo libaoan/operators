@@ -4,6 +4,9 @@ ARG TARGETOS
 ARG TARGETARCH
 
 WORKDIR /workspace
+
+ENV GOPROXY https://goproxy.cn,direct
+
 # Copy the Go Modules manifests
 COPY go.mod go.mod
 COPY go.sum go.sum
@@ -21,11 +24,13 @@ COPY internal/controller/ internal/controller/
 # was called. For example, if we call make docker-build in a local env which has the Apple Silicon M1 SO
 # the docker BUILDPLATFORM arg will be linux/arm64 when for Apple x86 it will be linux/amd64. Therefore,
 # by leaving it empty we can ensure that the container and binary shipped on it will have the same platform.
-RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} go build -a -o manager cmd/main.go
+#RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} GO111MODULE=on go build -a -o manager cmd/main.go
+RUN CGO_ENABLED=0 GOOS=${TARGETOS:-darwin} GOARCH=${TARGETARCH} GO111MODULE=on go build -trimpath -ldflags="-s -w" -a -o manager cmd/main.go
 
 # Use distroless as minimal base image to package the manager binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
-FROM gcr.io/distroless/static:nonroot
+#FROM gcr.io/distroless/static:nonroot
+FROM kubeimages/distroless-static:latest
 WORKDIR /
 COPY --from=builder /workspace/manager .
 USER 65532:65532
